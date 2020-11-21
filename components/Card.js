@@ -17,7 +17,7 @@ const Card = ({ movie }) => {
 }
 
 const CardStyled = styled.div`
-  width: 400px;
+  width: 100%;
   border: 1px solid #ccc;
   margin-top: 50px;
   border-radius: 20px;
@@ -25,7 +25,7 @@ const CardStyled = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
   .poster {
-    height: 300px;
+    height: 400px;
 
     img {
       width: 100%;

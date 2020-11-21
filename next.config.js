@@ -13,6 +13,7 @@ module.exports = {
     config.resolve.alias['public'] = path.join(__dirname, 'public')
     config.resolve.alias['public'] = path.join(__dirname, 'public')
     config.resolve.alias['styles'] = path.join(__dirname, 'styles')
+    config.resolve.alias['theme'] = path.join(__dirname, 'theme')
 
     return config
   }

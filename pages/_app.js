@@ -1,12 +1,7 @@
 import Header from 'components/Header';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from 'emotion-theming'
+import theme from 'theme/theme.js'
 import 'styles/main.css'
-
-const theme = {
-  colors: {
-    primary: '#ff0000'
-  }
-}
 
 const App = ({ Component, pageProps }) => {
   return (
