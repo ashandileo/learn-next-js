@@ -1,15 +1,25 @@
 import styled from '@emotion/styled'
 import { rem } from 'polished'
+import { Flex, Box } from 'reflexbox'
+import Navigation from 'components/Navigation'
+import Link from 'next/link'
 
-const Header = ({ isDark }) => {
+const Header = ({ isDark, navigation }) => {
   return (
     <HeaderStyled isDark={isDark}>
-      <div className="container">
-        <div className="logo">
-          <img src="/images/logo.svg" alt="Sites Logo" />
-          <span className="logo-text">Next Movies</span>
-        </div>
-      </div>
+      <Box variant="container">
+        <Flex justifyContent="space-between" alignItems="center">
+          <div className="logo">
+            <Link href="/">
+              <a>
+                <img src="/images/logo.svg" alt="Sites Logo" />
+                <span className="logo-text">Next Movies</span>
+              </a>
+            </Link>
+          </div>
+          <Navigation navigation={navigation} />
+        </Flex>
+      </Box>
     </HeaderStyled>
   )
 }
@@ -19,12 +29,15 @@ const HeaderStyled = styled.header`
   padding: 20px;
 
   .logo {
-    display: flex;
-    align-items: center;
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
 
-    img {
-      width: 24px;
-      height: 24px;
+      img {
+        width: 24px;
+        height: 24px;
+      }
     }
 
     .logo-text {
