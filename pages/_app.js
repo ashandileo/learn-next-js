@@ -6,6 +6,7 @@ import getConfig from 'next/config'
 import { DefaultSeo } from 'next-seo'
 import SEO from '../next-seo.config'
 import ContextWrapper from 'components/ContextWrapper'
+import { appWithTranslation } from '../i18n'
 
 import 'styles/main.css'
 
@@ -25,13 +26,20 @@ const App = ({ Component, pageProps, navigation }) => {
 
 const { publicRuntimeConfig } = getConfig()
 
-App.getInitialProps = async () => {
+App.getInitialProps = async ({ Component, ctx }) => {
+  let pageProps = {}
+
   const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations`)
   const data = await res.json()
 
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx)
+  }
+
   return {
-    navigation: data
+    navigation: data,
+    pageProps
   }
 }
 
-export default App
+export default appWithTranslation(App)

@@ -2,12 +2,13 @@ import Card from 'components/Card'
 import fetch from 'isomorphic-unfetch'
 import { camelizeKeys } from 'humps'
 import { Flex, Box } from 'reflexbox'
+import { withTranslation } from '../i18n'
 
-const Home = ({ movies }) => {
+const Home = ({ movies, t }) => {
   console.log("Home -> movies", movies)
   return (
     <Box variant="container">
-      <Box my={40} as="h2">Latest Movies</Box>
+    <Box my={40} as="h2">{t('Latest Movies')}</Box>
       <Flex
         justifyContent="space-between"
         flexDirection={{ _: "column", md: "row" }}
@@ -41,4 +42,4 @@ export const getServerSideProps = async () => {
   }
 }
 
-export default Home
+export default withTranslation()(Home)

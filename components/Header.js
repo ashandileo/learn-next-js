@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { rem } from 'polished'
 import { Flex, Box } from 'reflexbox'
 import Navigation from 'components/Navigation'
-import ToggleNavigationColorButton from 'components/ToggleNavigationColorButton'
+import LanguageSwitcher from 'components/LanguageSwitcher'
 import Link from 'next/link'
 
 const Header = ({ isDark }) => {
@@ -19,7 +19,7 @@ const Header = ({ isDark }) => {
             </Link>
           </div>
           <Navigation />
-          <ToggleNavigationColorButton />
+          <LanguageSwitcher />
         </Flex>
       </Box>
     </HeaderStyled>
