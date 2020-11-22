@@ -6,7 +6,6 @@ import getConfig from 'next/config'
 import 'styles/main.css'
 
 const App = ({ Component, pageProps, navigation }) => {
-  console.log("App -> navigation", navigation)
   return (
     <>
       <ThemeProvider theme={theme}>
