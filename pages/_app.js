@@ -5,6 +5,7 @@ import theme from 'theme/theme.js'
 import getConfig from 'next/config'
 import { DefaultSeo } from 'next-seo'
 import SEO from '../next-seo.config'
+import ContextWrapper from 'components/ContextWrapper'
 
 import 'styles/main.css'
 
@@ -13,7 +14,9 @@ const App = ({ Component, pageProps, navigation }) => {
     <>
       <DefaultSeo {...SEO} />
       <ThemeProvider theme={theme}>
-        <Header navigation={navigation} />
+        <ContextWrapper navigation={navigation}>
+          <Header />
+        </ContextWrapper>
         <Component {...pageProps} />
       </ThemeProvider>
     </>

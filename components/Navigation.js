@@ -1,15 +1,18 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useContext } from 'react'
+import HeaderContext from '../context/headerContext'
 
-const Navigation = ({ navigation }) => {
+const Navigation = () => {
   const router = useRouter()
+  const { menuItems, color } = useContext(HeaderContext)
 
   return (
-    <NavigationStyled>
+    <NavigationStyled color={color}>
       <ul>
         {
-          navigation.map(navItem => (
+          menuItems.map(navItem => (
             <li key={navItem.id}>
               <Link href={navItem.slug}>
                 <a className={router.pathname == navItem.slug ? 'active' : ''}>{navItem.title}</a>
@@ -32,7 +35,7 @@ const NavigationStyled = styled.div`
     }
     a {
       text-decoration: none;
-      color: #4C9EE3;
+      color: ${props => props.color ? '#4c9ee3' : '#000'};
       &:hover {
         text-decoration: underline;
       }
